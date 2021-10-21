@@ -18,4 +18,12 @@ public interface RedHiveConfig extends Config {
     @Key("loginPassword")
     String loginPassword();
 
+    @Key("loginSelenoid")
+    String loginSelenoid();
+
+    @Key("passwordSelenoid")
+    String passwordSelenoid();
+
+    @Key("runMode")
+    String runMode();
 }

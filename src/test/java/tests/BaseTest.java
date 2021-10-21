@@ -9,10 +9,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utils.Attach;
 
+import static config.Credentials.credentials;
+import static java.lang.String.format;
+
 
 public class BaseTest {
     @BeforeAll
     static void setup() {
+        String loginSelenoid = credentials.loginSelenoid();
+        String passwordSelenoid = credentials.passwordSelenoid();
+
         DriverSettings.configure();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
@@ -29,9 +35,9 @@ public class BaseTest {
         //if need to execute tests locally, use command:
         //gradle clean test
 
-      //  if  (System.getProperty("runMode", "local").equals("remote")) {
-      //      Configuration.remote = format("https://%s:%s@" + System.getProperty("url"), login, password);
-     //   }
+        if (System.getProperty("runMode", "local").equals("remote")) {
+            Configuration.remote = format("https://%s:%s@" + System.getProperty("url"), loginSelenoid, passwordSelenoid);
+        }
     }
 
     @AfterEach
