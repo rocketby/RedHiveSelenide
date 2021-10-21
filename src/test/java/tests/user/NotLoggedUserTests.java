@@ -1,0 +1,73 @@
+package tests.user;
+
+import allure.JiraIssue;
+import allure.Layer;
+import allure.Microservice;
+import enums.MenuItem;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.*;
+import pages.ArticlesPage;
+import pages.DecksPage;
+import pages.LoginPage;
+import pages.MainPage;
+import tests.BaseTest;
+
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static config.Credentials.credentials;
+
+@Owner("tat")
+@Layer("web")
+@Microservice("main menu")
+@DisplayName("Verify opening of pages by not logged user")
+public class NotLoggedUserTests extends BaseTest {
+    private MainPage mainPage;
+
+    @BeforeEach
+    void setUpBeforeEach() {
+        open(credentials.faviconURL());
+        getWebDriver().manage().deleteAllCookies();
+        mainPage = open(credentials.loginURL(), MainPage.class);
+    }
+
+    @Test
+    @JiraIssue("HOMEWORK-257")
+    @Tags({@Tag("web"), @Tag("decks")})
+    @DisplayName("Open page with decks by logged user")
+    public void openDecksPageByNotLoggedUserTest(){
+        new MainPage().clickMenuOption(MenuItem.OPEN_DECKS);
+        new DecksPage()
+                .shouldDisplayDecksPage()
+                .shouldDisplayDecksOnPage();
+    }
+
+
+    @Test
+    @JiraIssue("HOMEWORK-257")
+    @Tags({@Tag("web"), @Tag("article")})
+    @DisplayName("Open page with articles by logged user")
+    public void openArticlesPageByNotLoggedUserTest(){
+        new MainPage().clickMenuOption(MenuItem.OPEN_ARTICLES);
+        new ArticlesPage()
+                .shouldDisplayArticlesPage()
+                .shouldDisplayArticlesOnPage();
+    }
+
+    @Test
+    @JiraIssue("HOMEWORK-257")
+    @Tags({@Tag("web"), @Tag("article")})
+    @DisplayName("Open page to create a new article by logged user")
+    public void openCreateArticlePageByNotLoggedUserTest() {
+        mainPage.clickMenuOption(MenuItem.CREATE_ARTICLE);
+        new LoginPage().loginPageShouldBeDisplayed();
+    }
+
+    @Test
+    @JiraIssue("HOMEWORK-257")
+    @Tags({@Tag("web"), @Tag("decks")})
+    @DisplayName("Open page to create a new deck by logged user")
+    public void openCreateDeckPageByNotLoggedUserTest() {
+        mainPage.clickMenuOption(MenuItem.CREATE_DECK);
+        new LoginPage().loginPageShouldBeDisplayed();
+    }
+}
