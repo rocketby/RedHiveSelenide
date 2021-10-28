@@ -18,10 +18,12 @@ import static config.Credentials.credentials;
 
 @Owner("tat")
 @Layer("web")
-@Microservice("Login functionality")
+@Microservice("login")
 @DisplayName("Verify login")
 public class LoginTests extends BaseTest {
     private LoginPage loginPage;
+    String email = credentials.loginEmail();
+    String password = credentials.loginPassword();
 
     @BeforeEach
     @DisplayName("Open login page")
@@ -31,8 +33,6 @@ public class LoginTests extends BaseTest {
         loginPage = open(Endpoint.LOGIN.getPath(), LoginPage.class);
     }
 
-    String email = credentials.loginEmail();
-    String password = credentials.loginPassword();
 
     @Test
     @JiraIssue("HOMEWORK-257")

@@ -3,6 +3,7 @@ package tests.menu;
 import allure.JiraIssue;
 import allure.Layer;
 import allure.Microservice;
+import enums.LoginField;
 import enums.MenuItem;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
@@ -31,7 +32,7 @@ public class NotLoggedUserTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("decks")})
     @DisplayName("Open page with decks by not logged user")
-    public void openDecksPageByNotLoggedUserTest(){
+    public void openDecksPageByNotLoggedUserTest() {
         new MainPage().clickMenuOption(MenuItem.OPEN_DECKS);
         new DecksPage()
                 .shouldDisplayDecksPage()
@@ -43,7 +44,7 @@ public class NotLoggedUserTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("article")})
     @DisplayName("Open page with articles by not logged user")
-    public void openArticlesPageByNotLoggedUserTest(){
+    public void openArticlesPageByNotLoggedUserTest() {
         new MainPage().clickMenuOption(MenuItem.OPEN_ARTICLES);
         new ArticlesPage()
                 .shouldDisplayArticlesPage()
@@ -77,5 +78,23 @@ public class NotLoggedUserTests extends BaseTest {
         new PriceCalculatorPage()
                 .shouldOpenPriceCalculatorPage()
                 .shouldDisplayLoginAlert();
+    }
+
+    @Test
+    @JiraIssue("HOMEWORK-257")
+    @Tags({@Tag("web"), @Tag("positive")})
+    @DisplayName("Successful login")
+    public void checkSuccessfulLogin() {
+        LoginPage loginPage = new LoginPage();
+        String email = credentials.loginEmail();
+        String password = credentials.loginPassword();
+        loginPage
+                .fillField(LoginField.EMAIL, email)
+                .fillField(LoginField.PASSWORD, password)
+                .setRememberMeCheckbox()
+                .clickLogin();
+        // System.out.println(getWebDriver().manage().getCookies());
+        UserAccountPage userAccountPage = new UserAccountPage();
+        userAccountPage.avatarOfLoggedUserShouldBeVisible();
     }
 }
