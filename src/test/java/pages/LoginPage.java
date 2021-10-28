@@ -14,7 +14,7 @@ public class LoginPage {
     private final String idCssPattern = "#%s";
 
     @Step("Set value in the field '{field}'")
-    public LoginPage fillField(LoginField field, @Param(name="value", mode=MASKED) String value) {
+    public LoginPage fillField(LoginField field, /*@Param(name="value", mode=MASKED)*/ String value) {
         $(String.format(idCssPattern, field.getId())).setValue(value);
         return this;
     }

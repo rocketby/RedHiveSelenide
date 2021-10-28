@@ -80,21 +80,4 @@ public class NotLoggedUserTests extends BaseTest {
                 .shouldDisplayLoginAlert();
     }
 
-    @Test
-    @JiraIssue("HOMEWORK-257")
-    @Tags({@Tag("web"), @Tag("positive")})
-    @DisplayName("Successful login")
-    public void checkSuccessfulLogin() {
-        LoginPage loginPage = new LoginPage();
-        String email = credentials.loginEmail();
-        String password = credentials.loginPassword();
-        loginPage
-                .fillField(LoginField.EMAIL, email)
-                .fillField(LoginField.PASSWORD, password)
-                .setRememberMeCheckbox()
-                .clickLogin();
-        // System.out.println(getWebDriver().manage().getCookies());
-        UserAccountPage userAccountPage = new UserAccountPage();
-        userAccountPage.avatarOfLoggedUserShouldBeVisible();
-    }
 }
