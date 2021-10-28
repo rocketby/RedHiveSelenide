@@ -1,4 +1,4 @@
-package tests;
+package tests.login;
 
 import allure.JiraIssue;
 import allure.Layer;
@@ -10,6 +10,7 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.LoginPage;
 import pages.UserAccountPage;
+import tests.BaseTest;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;

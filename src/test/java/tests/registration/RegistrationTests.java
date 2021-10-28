@@ -1,16 +1,22 @@
-package tests;
+package tests.registration;
 
 import allure.JiraIssue;
+import allure.Layer;
+import allure.Microservice;
 import com.codeborne.selenide.Selenide;
 import enums.Endpoint;
 import enums.RegistrationField;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.RegistrationPage;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import tests.BaseTest;
 
-import static io.qameta.allure.Allure.parameter;
-
+@Owner("tat")
+@Layer("web")
+@Microservice("registration")
+@DisplayName("Verify registration with wrong format of email")
 public class RegistrationTests extends BaseTest {
     private RegistrationPage registrationPage;
 
@@ -20,7 +26,6 @@ public class RegistrationTests extends BaseTest {
         registrationPage = Selenide.open(Endpoint.REGISTRATION.getPath(), RegistrationPage.class);
     }
 
-    @Test
     @ParameterizedTest(name = "Unsuccessful registration (fill wrong email: {0})")
     @ValueSource(strings = {"test", "test@", "test.com", "test@.com", "test@tt.11", "@gmail.com"})
     @JiraIssue("HOMEWORK-257")
@@ -28,7 +33,6 @@ public class RegistrationTests extends BaseTest {
     @DisplayName("Login attempts with bad format of email")
     void checkUnsuccessfulRegistration(String wrongEmail) {
         String password = "test123456";
-        parameter("Wrong user.getEmail()", wrongEmail);
         registrationPage
                 .fillField(RegistrationField.EMAIL, wrongEmail)
                 .fillField(RegistrationField.PASSWORD, password)
