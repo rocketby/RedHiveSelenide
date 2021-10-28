@@ -6,10 +6,7 @@ import allure.Microservice;
 import enums.MenuItem;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import pages.ArticlesPage;
-import pages.DecksPage;
-import pages.LoginPage;
-import pages.MainPage;
+import pages.*;
 import tests.BaseTest;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -69,5 +66,16 @@ public class NotLoggedUserTests extends BaseTest {
     public void openCreateDeckPageByNotLoggedUserTest() {
         mainPage.clickMenuOption(MenuItem.CREATE_DECK);
         new LoginPage().loginPageShouldBeDisplayed();
+    }
+
+    @Test
+    @JiraIssue("HOMEWORK-257")
+    @Tags({@Tag("web"), @Tag("priceCalculator")})
+    @DisplayName("Open price calculator by not logged user")
+    public void openPriceCalculatorNotLoggedUserTest() {
+        mainPage.clickMenuOption(MenuItem.PRICE_CALCULATOR);
+        new PriceCalculatorPage()
+                .shouldOpenPriceCalculatorPage()
+                .shouldDisplayLoginAlert();
     }
 }

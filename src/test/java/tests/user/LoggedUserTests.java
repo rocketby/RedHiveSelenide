@@ -22,6 +22,7 @@ import static config.Credentials.credentials;
 public class LoggedUserTests extends BaseTest {
     private static LoginPage loginPage;
 
+
     @BeforeEach
     @DisplayName("Login in Red Hive")
     public void setUpBeforeEach() {
@@ -77,4 +78,14 @@ public class LoggedUserTests extends BaseTest {
         new NewDeckPage().shouldDisplayNewDeckCreationForm();
     }
 
+    @Test
+    @JiraIssue("HOMEWORK-257")
+    @Tags({@Tag("web"), @Tag("priceCalculator")})
+    @DisplayName("Open price calculator by logged user")
+    public void openPriceCalculatorLoggedUserTest() {
+        new MainPage().clickMenuOption(MenuItem.PRICE_CALCULATOR);
+        new PriceCalculatorPage()
+                .shouldOpenPriceCalculatorPage()
+                .shouldNotDisplayLoginAlert();
+    }
 }

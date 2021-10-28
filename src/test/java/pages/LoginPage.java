@@ -1,23 +1,21 @@
 package pages;
 
+import io.qameta.allure.Param;
 import io.qameta.allure.Step;
 import enums.LoginField;
-
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
 
 import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static io.qameta.allure.model.Parameter.Mode.MASKED;
 
 public class LoginPage {
     private final String idCssPattern = "#%s";
 
-
     @Step("Set value in the field '{field}'")
-    public LoginPage fillField(LoginField field, String value) {
-        $(String.format(idCssPattern, field.getId()))
-                .setValue(value);
+    public LoginPage fillField(LoginField field, @Param(name="value", mode=MASKED) String value) {
+        $(String.format(idCssPattern, field.getId())).setValue(value);
         return this;
     }
 
@@ -41,8 +39,7 @@ public class LoginPage {
 
     @Step("Check, that login page is displayed")
     public LoginPage loginPageShouldBeDisplayed(){
-        $(byText("Please sign in")).shouldBe(visible);
-        //$("a[href$='login']").shouldBe(visible);
+        $("a[href$='login']").shouldBe(visible);
         return this;
     }
 

@@ -21,6 +21,4 @@ public class ArticlesPage {
         $$x("//div[@class='row articles-list ']/div").shouldHave(size(numberOfArticlesOnPage));
         return this;
     }
-
-
 }

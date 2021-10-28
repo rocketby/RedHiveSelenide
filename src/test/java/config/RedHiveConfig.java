@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:config.properties"
+        "classpath:redhive-config.properties"
 })
 public interface RedHiveConfig extends Config {
     @Key("loginURL")
