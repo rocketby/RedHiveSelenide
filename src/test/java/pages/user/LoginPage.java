@@ -1,4 +1,4 @@
-package pages;
+package pages.user;
 
 import io.qameta.allure.Step;
 
@@ -51,7 +51,7 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Alert is displayed")
+    @Step("Check, that Alert is displayed")
     public LoginPage alertShouldBeVisible() {
         $(".alert-danger").shouldBe(visible);
         return this;

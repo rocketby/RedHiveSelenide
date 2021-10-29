@@ -8,12 +8,11 @@ import enums.Endpoint;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import pages.LoginPage;
-import pages.UserAccountPage;
+import pages.user.LoginPage;
+import pages.user.UserAccountPage;
 import tests.BaseTest;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static config.Credentials.credentials;
 
 @Owner("tat")
@@ -28,11 +27,9 @@ public class LoginTests extends BaseTest {
     @BeforeEach
     @DisplayName("Open login page")
     void setUpBeforeEach() {
-        open(credentials.faviconURL());
-        getWebDriver().manage().deleteAllCookies();
+        cleanCookies();
         loginPage = open(Endpoint.LOGIN.getPath(), LoginPage.class);
     }
-
 
     @Test
     @AllureId("5690")
@@ -45,7 +42,7 @@ public class LoginTests extends BaseTest {
                 .enterPassword(password)
                 .unsetRememberMeCheckbox()
                 .clickLogin();
-       // System.out.println(getWebDriver().manage().getCookies());
+        // System.out.println(getWebDriver().manage().getCookies());
         UserAccountPage userAccountPage = new UserAccountPage();
         userAccountPage.avatarOfLoggedUserShouldBeVisible();
     }

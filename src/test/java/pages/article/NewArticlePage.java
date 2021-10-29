@@ -1,4 +1,4 @@
-package pages;
+package pages.article;
 
 import static com.codeborne.selenide.Condition.visible;
 import io.qameta.allure.Step;

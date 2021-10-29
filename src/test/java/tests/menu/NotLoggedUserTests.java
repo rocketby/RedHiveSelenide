@@ -7,11 +7,14 @@ import enums.MenuItem;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import pages.*;
+import pages.MainPage;
+import pages.article.ArticlesPage;
+import pages.calculator.PriceCalculatorPage;
+import pages.deck.DecksPage;
+import pages.user.LoginPage;
 import tests.BaseTest;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static config.Credentials.credentials;
 
 @Owner("tat")
@@ -19,12 +22,11 @@ import static config.Credentials.credentials;
 @Microservice("main menu")
 @DisplayName("Verify opening of pages by not logged user")
 public class NotLoggedUserTests extends BaseTest {
-    private MainPage mainPage;
+    private static MainPage mainPage;
 
-    @BeforeEach
-    void setUpBeforeEach() {
-        open(credentials.faviconURL());
-        getWebDriver().manage().deleteAllCookies();
+    @BeforeAll
+    public static void setUpBeforeEach()  {
+        cleanCookies();
         mainPage = open(credentials.loginURL(), MainPage.class);
     }
 
@@ -84,5 +86,4 @@ public class NotLoggedUserTests extends BaseTest {
                 .shouldOpenPriceCalculatorPage()
                 .shouldDisplayLoginAlert();
     }
-
 }

@@ -8,7 +8,7 @@ import enums.Endpoint;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import pages.RegistrationPage;
+import pages.user.RegistrationPage;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import tests.BaseTest;
@@ -23,6 +23,7 @@ public class RegistrationTests extends BaseTest {
     @BeforeEach
     @DisplayName("Open registration page")
     void setUpBeforeEach() {
+        cleanCookies();
         registrationPage = Selenide.open(Endpoint.REGISTRATION.getPath(), RegistrationPage.class);
     }
 

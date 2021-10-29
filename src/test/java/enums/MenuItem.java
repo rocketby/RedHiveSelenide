@@ -17,9 +17,4 @@ public enum MenuItem {
         return link;
     }
 
-
-    @Override
-    public String toString() {
-        return link;
-    }
 }

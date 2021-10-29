@@ -3,39 +3,29 @@ package tests.menu;
 import allure.JiraIssue;
 import allure.Layer;
 import allure.Microservice;
-import enums.Endpoint;
 import enums.MenuItem;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import pages.*;
+import pages.MainPage;
+import pages.article.ArticlesPage;
+import pages.article.NewArticlePage;
+import pages.calculator.PriceCalculatorPage;
+import pages.deck.DecksPage;
+import pages.deck.NewDeckPage;
 import tests.BaseTest;
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static config.Credentials.credentials;
 
 @Owner("tat")
 @Layer("web")
 @Microservice("main menu")
 @DisplayName("Verify opening main menu sections by logged user")
 public class LoggedUserTests extends BaseTest {
-    private static LoginPage loginPage;
 
-
-    @BeforeEach
+    @BeforeAll
     @DisplayName("Login in Red Hive")
-    public void setUpBeforeEach() {
-        open(credentials.faviconURL());
-        getWebDriver().manage().deleteAllCookies();
-        loginPage = open(Endpoint.LOGIN.getPath(), LoginPage.class);
-        String email = credentials.loginEmail();
-        String password = credentials.loginPassword();
-        loginPage
-                .enterEmail(email)
-                .enterPassword(password)
-                .unsetRememberMeCheckbox()
-                .clickLogin();
+    public static void setUpBeforeEach() {
+        cleanCookies();
+        login();
     }
 
     @Test
@@ -43,7 +33,7 @@ public class LoggedUserTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("decks")})
     @DisplayName("Open page with decks by logged user")
-    public void openDecksPageByLoggedUserTest(){
+    public void openDecksPageByLoggedUserTest() {
         new MainPage().clickMenuOption(MenuItem.OPEN_DECKS);
         new DecksPage()
                 .shouldDisplayDecksPage()
@@ -55,7 +45,7 @@ public class LoggedUserTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("article")})
     @DisplayName("Open page with articles by logged user")
-    public void openArticlesPageByLoggedUserTest(){
+    public void openArticlesPageByLoggedUserTest() {
         new MainPage().clickMenuOption(MenuItem.OPEN_ARTICLES);
         new ArticlesPage()
                 .shouldDisplayArticlesPage()

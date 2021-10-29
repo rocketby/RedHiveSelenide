@@ -1,4 +1,4 @@
-package pages;
+package pages.user;
 
 
 import com.codeborne.selenide.Condition;

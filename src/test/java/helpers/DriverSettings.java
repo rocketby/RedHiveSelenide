@@ -2,6 +2,7 @@ package helpers;
 
 import static config.Credentials.credentials;
 import static java.lang.String.format;
+
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
