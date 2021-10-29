@@ -1,19 +1,22 @@
 package pages;
 
 import static com.codeborne.selenide.Condition.visible;
-import enums.RegistrationField;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class RegistrationPage {
-    private final String idCssPattern = "#%s";
 
-    @Step("Set value in the field '{field}'")
-    public RegistrationPage fillField(RegistrationField field, String value) {
-        $(String.format(idCssPattern, field.getId()))
-                .setValue(value);
+    @Step("Set value in field Email")
+    public RegistrationPage enterEmail(String value) {
+        $("#registration_form_email").setValue(value);
+        return this;
+    }
+
+    @Step("Set value in field Password")
+    public RegistrationPage enterPassword(String value) {
+        $("#registration_form_plainPassword").setValue(value);
         return this;
     }
 

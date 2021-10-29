@@ -1,26 +1,29 @@
 package pages;
 
-import io.qameta.allure.Param;
 import io.qameta.allure.Step;
-import enums.LoginField;
+
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.visible;
 
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
-import static io.qameta.allure.model.Parameter.Mode.MASKED;
 
 public class LoginPage {
-    private final String idCssPattern = "#%s";
 
-    @Step("Set value in the field '{field}'")
-    public LoginPage fillField(LoginField field, /*@Param(name="value", mode=MASKED)*/ String value) {
-        $(String.format(idCssPattern, field.getId())).setValue(value);
+    @Step("Set value in field Email")
+    public LoginPage enterEmail(String value) {
+        $("#inputEmail").setValue(value);
+        return this;
+    }
+
+    @Step("Set value in field Password")
+    public LoginPage enterPassword(String value) {
+        $("#inputPassword").setValue(value);
         return this;
     }
 
     @Step("Unset 'RememberMe' checkbox")
-    public LoginPage setRememberMeCheckbox() {
+    public LoginPage unsetRememberMeCheckbox() {
         $(byName("_remember_me")).click();
         return this;
     }
@@ -31,14 +34,19 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Check, that field {field} in attribute 'required' has expected value: {expectedValue}")
-    public LoginPage fieldShouldHaveExpectedAttribute(LoginField field, String expectedValue){
-        $(String.format(idCssPattern, field.getId())).shouldHave(attribute("required", expectedValue));
+    @Step("Check, that Email field is mandatory")
+    public LoginPage fieldEmailShouldBeMandatory() {
+        $("#inputEmail").shouldHave(attribute("required", "true"));
         return this;
     }
 
+    @Step("Check, that Password field is mandatory")
+    public LoginPage fieldPasswordShouldBeMandatory() {
+        $("#inputPassword").shouldHave(attribute("required", "true"));
+        return this;
+    }
     @Step("Check, that login page is displayed")
-    public LoginPage loginPageShouldBeDisplayed(){
+    public LoginPage loginPageShouldBeDisplayed() {
         $("a[href$='login']").shouldBe(visible);
         return this;
     }

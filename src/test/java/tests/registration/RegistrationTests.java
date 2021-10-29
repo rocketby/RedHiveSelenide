@@ -5,7 +5,6 @@ import allure.Layer;
 import allure.Microservice;
 import com.codeborne.selenide.Selenide;
 import enums.Endpoint;
-import enums.RegistrationField;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
@@ -36,8 +35,8 @@ public class RegistrationTests extends BaseTest {
     void checkUnsuccessfulRegistration(String wrongEmail) {
         String password = "test123456";
         registrationPage
-                .fillField(RegistrationField.EMAIL, wrongEmail)
-                .fillField(RegistrationField.PASSWORD, password)
+                .enterEmail(wrongEmail)
+                .enterPassword(password)
                 .markCheckboxAgreeWithTerms()
                 .clickRegister()
                 .shouldDisplayRegistrationPage();

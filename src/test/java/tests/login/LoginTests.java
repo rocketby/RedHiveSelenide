@@ -5,7 +5,6 @@ import allure.Layer;
 import allure.Microservice;
 
 import enums.Endpoint;
-import enums.LoginField;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
@@ -42,9 +41,9 @@ public class LoginTests extends BaseTest {
     @DisplayName("Successful login")
     public void checkSuccessfulLogin() {
         loginPage
-                .fillField(LoginField.EMAIL, email)
-                .fillField(LoginField.PASSWORD, password)
-                .setRememberMeCheckbox()
+                .enterEmail(email)
+                .enterPassword(password)
+                .unsetRememberMeCheckbox()
                 .clickLogin();
        // System.out.println(getWebDriver().manage().getCookies());
         UserAccountPage userAccountPage = new UserAccountPage();
@@ -60,9 +59,9 @@ public class LoginTests extends BaseTest {
         String wrongPassword = "badPassword";
 
         loginPage
-                .fillField(LoginField.EMAIL, email)
-                .fillField(LoginField.PASSWORD, wrongPassword)
-                .setRememberMeCheckbox()
+                .enterEmail(email)
+                .enterPassword(wrongPassword)
+                .unsetRememberMeCheckbox()
                 .clickLogin();
         loginPage.alertShouldBeVisible();
         loginPage.loginPageShouldBeDisplayed();
@@ -74,12 +73,11 @@ public class LoginTests extends BaseTest {
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (email is not entered)")
     public void checkLoginWithNotEnteredEmail() {
-        String fieldAttributeRequired = "true";
         loginPage
-                .fillField(LoginField.PASSWORD, password)
+                .enterPassword(password)
                 .clickLogin();
 
-        loginPage.fieldShouldHaveExpectedAttribute(LoginField.EMAIL, fieldAttributeRequired);
+        loginPage.fieldEmailShouldBeMandatory();
         loginPage.loginPageShouldBeDisplayed();
     }
 
@@ -89,12 +87,11 @@ public class LoginTests extends BaseTest {
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (password is not entered)")
     public void checkLoginWithNotEnteredPassword() {
-        String fieldAttributeRequired = "true";
         loginPage
-                .fillField(LoginField.EMAIL, email)
+                .enterEmail(email)
                 .clickLogin();
 
-        loginPage.fieldShouldHaveExpectedAttribute(LoginField.PASSWORD, fieldAttributeRequired);
+        loginPage.fieldPasswordShouldBeMandatory();
         loginPage.loginPageShouldBeDisplayed();
     }
 
@@ -106,8 +103,8 @@ public class LoginTests extends BaseTest {
     public void checkLoginWithNotRegisteredMail() {
         String emailNotRegistered = "ee@ee.ee";
         loginPage
-                .fillField(LoginField.EMAIL, emailNotRegistered)
-                .fillField(LoginField.PASSWORD, password)
+                .enterEmail(emailNotRegistered)
+                .enterPassword(password)
                 .clickLogin();
 
         loginPage.alertShouldBeVisible();

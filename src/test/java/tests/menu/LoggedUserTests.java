@@ -4,7 +4,6 @@ import allure.JiraIssue;
 import allure.Layer;
 import allure.Microservice;
 import enums.Endpoint;
-import enums.LoginField;
 import enums.MenuItem;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
@@ -33,9 +32,9 @@ public class LoggedUserTests extends BaseTest {
         String email = credentials.loginEmail();
         String password = credentials.loginPassword();
         loginPage
-                .fillField(LoginField.EMAIL, email)
-                .fillField(LoginField.PASSWORD, password)
-                .setRememberMeCheckbox()
+                .enterEmail(email)
+                .enterPassword(password)
+                .unsetRememberMeCheckbox()
                 .clickLogin();
     }
 

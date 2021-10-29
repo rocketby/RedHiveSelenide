@@ -3,7 +3,6 @@ package tests.menu;
 import allure.JiraIssue;
 import allure.Layer;
 import allure.Microservice;
-import enums.LoginField;
 import enums.MenuItem;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
