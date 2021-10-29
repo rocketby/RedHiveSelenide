@@ -22,10 +22,10 @@ import static config.Credentials.credentials;
 @Microservice("main menu")
 @DisplayName("Verify opening of pages by not logged user")
 public class NotLoggedUserTests extends BaseTest {
-    private static MainPage mainPage;
+    private MainPage mainPage;
 
-    @BeforeAll
-    public static void setUpBeforeEach()  {
+    @BeforeEach
+    void setUpBeforeEach()  {
         cleanCookies();
         mainPage = open(credentials.loginURL(), MainPage.class);
     }

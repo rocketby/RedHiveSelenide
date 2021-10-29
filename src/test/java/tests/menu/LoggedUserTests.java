@@ -21,9 +21,9 @@ import tests.BaseTest;
 @DisplayName("Verify opening main menu sections by logged user")
 public class LoggedUserTests extends BaseTest {
 
-    @BeforeAll
+    @BeforeEach
     @DisplayName("Login in Red Hive")
-    public static void setUpBeforeEach() {
+    void setUpBeforeEach() {
         cleanCookies();
         login();
     }

@@ -22,12 +22,12 @@ public class BaseTest {
 
     }
 
-    public static void cleanCookies(){
+    public void cleanCookies(){
         open(credentials.faviconURL());
         getWebDriver().manage().deleteAllCookies();
     }
 
-    public static void login() {
+    public void login() {
         LoginPage loginPage;
         String email = credentials.loginEmail();
         String password = credentials.loginPassword();
