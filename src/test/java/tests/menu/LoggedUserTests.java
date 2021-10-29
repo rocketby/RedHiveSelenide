@@ -15,17 +15,22 @@ import pages.deck.DecksPage;
 import pages.deck.NewDeckPage;
 import tests.BaseTest;
 
+import static com.codeborne.selenide.Selenide.open;
+import static config.Credentials.credentials;
+
 @Owner("tat")
 @Layer("web")
 @Microservice("main menu")
 @DisplayName("Verify opening main menu sections by logged user")
 public class LoggedUserTests extends BaseTest {
+    private MainPage mainPage;
 
     @BeforeEach
     @DisplayName("Login in Red Hive")
     void setUpBeforeEach() {
         cleanCookies();
-        login();
+        setCookie();
+        mainPage = open(credentials.baseURL(), MainPage.class);
     }
 
     @Test
@@ -34,7 +39,7 @@ public class LoggedUserTests extends BaseTest {
     @Tags({@Tag("web"), @Tag("decks")})
     @DisplayName("Open page with decks by logged user")
     public void openDecksPageByLoggedUserTest() {
-        new MainPage().clickMenuOption(MenuItem.OPEN_DECKS);
+        mainPage.clickMenuOption(MenuItem.OPEN_DECKS);
         new DecksPage()
                 .shouldDisplayDecksPage()
                 .shouldDisplayDecksOnPage();
@@ -46,7 +51,7 @@ public class LoggedUserTests extends BaseTest {
     @Tags({@Tag("web"), @Tag("article")})
     @DisplayName("Open page with articles by logged user")
     public void openArticlesPageByLoggedUserTest() {
-        new MainPage().clickMenuOption(MenuItem.OPEN_ARTICLES);
+        mainPage.clickMenuOption(MenuItem.OPEN_ARTICLES);
         new ArticlesPage()
                 .shouldDisplayArticlesPage()
                 .shouldDisplayArticlesOnPage();
@@ -58,7 +63,7 @@ public class LoggedUserTests extends BaseTest {
     @Tags({@Tag("web"), @Tag("article")})
     @DisplayName("Open page to create a new article by logged user")
     public void openCreateArticlePageByLoggedUserTest() {
-        new MainPage().clickMenuOption(MenuItem.CREATE_ARTICLE);
+        mainPage.clickMenuOption(MenuItem.CREATE_ARTICLE);
         new NewArticlePage().shouldDisplayNewArticleCreationForm();
     }
 
@@ -68,7 +73,7 @@ public class LoggedUserTests extends BaseTest {
     @Tags({@Tag("web"), @Tag("decks")})
     @DisplayName("Open page to create a new deck by logged user")
     public void openCreateDeckPageByLoggedUserTest() {
-        new MainPage().clickMenuOption(MenuItem.CREATE_DECK);
+        mainPage.clickMenuOption(MenuItem.CREATE_DECK);
         new NewDeckPage().shouldDisplayNewDeckCreationForm();
     }
 
@@ -78,7 +83,7 @@ public class LoggedUserTests extends BaseTest {
     @Tags({@Tag("web"), @Tag("priceCalculator")})
     @DisplayName("Open price calculator by logged user")
     public void openPriceCalculatorLoggedUserTest() {
-        new MainPage().clickMenuOption(MenuItem.PRICE_CALCULATOR);
+        mainPage.clickMenuOption(MenuItem.PRICE_CALCULATOR);
         new PriceCalculatorPage()
                 .shouldOpenPriceCalculatorPage()
                 .shouldNotDisplayLoginAlert();

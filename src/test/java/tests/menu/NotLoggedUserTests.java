@@ -27,7 +27,7 @@ public class NotLoggedUserTests extends BaseTest {
     @BeforeEach
     void setUpBeforeEach()  {
         cleanCookies();
-        mainPage = open(credentials.loginURL(), MainPage.class);
+        mainPage = open(credentials.baseURL(), MainPage.class);
     }
 
     @Test

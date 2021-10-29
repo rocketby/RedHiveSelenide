@@ -6,8 +6,8 @@ import org.aeonbits.owner.Config;
         "classpath:redhive-config.properties"
 })
 public interface RedHiveConfig extends Config {
-    @Key("loginURL")
-    String loginURL();
+    @Key("baseURL")
+    String baseURL();
 
     @Key("faviconURL")
     String faviconURL();
