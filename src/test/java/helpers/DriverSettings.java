@@ -1,42 +1,38 @@
 package helpers;
 
 import static config.Credentials.credentials;
+import static java.lang.String.format;
 import com.codeborne.selenide.Configuration;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class DriverSettings {
 
     public static void configure() {
-      //  Configuration.browser = Project.config.browser();
-     //   Configuration.browserVersion = Project.config.browserVersion();
-     //   Configuration.browserSize = Project.config.browserSize();
-        Configuration.baseUrl = credentials.loginURL();
+        String loginSelenoid = credentials.loginSelenoid();
+        String passwordSelenoid = credentials.passwordSelenoid();
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        ChromeOptions chromeOptions = new ChromeOptions();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
 
-        chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--disable-infobars");
-        chromeOptions.addArguments("--disable-popup-blocking");
-        chromeOptions.addArguments("--disable-notifications");
-      //  chromeOptions.addArguments("--lang=ru-ru");
 
-//        if (Project.isWebMobile()) { // for chrome only
-//            Map<String, Object> mobileDevice = new HashMap<>();
-//            mobileDevice.put("deviceName", Project.config.browserMobileView());
-//            chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
-//        }
-//
-//        if (Project.isRemoteWebDriver()) {
-//            capabilities.setCapability("enableVNC", true);
-//            capabilities.setCapability("enableVideo", true);
-//            Configuration.remote = Project.config.remoteDriverUrl();
-//        }
-
-        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+        Configuration.browser = credentials.browser();
+        Configuration.browserVersion = credentials.browserVersion();
+        Configuration.browserSize = credentials.browserSize();
         Configuration.browserCapabilities = capabilities;
+        Configuration.startMaximized = true;
+        Configuration.baseUrl = credentials.loginURL();
+
+        //if need to execute tests in selenoid, then use command:
+        //gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/ -DrunMode=remote
+
+        //if need to execute tests locally, use command:
+        //gradle clean test
+
+        if (System.getProperty("runMode", "local").equals("remote")) {
+            Configuration.remote = format("https://%s:%s@" + System.getProperty("url"), loginSelenoid, passwordSelenoid);
+        }
+
     }
 }

@@ -4,6 +4,7 @@ import allure.JiraIssue;
 import allure.JiraIssues;
 import api.models.UserAccountData;
 import api.spec.ApiSteps;
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -18,6 +19,7 @@ public class TwitterUserAccountTests {
     private final ApiSteps steps = new ApiSteps();
 
     @Test
+    @AllureId("5674")
     @JiraIssues({@JiraIssue("HOMEWORK-257")})
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify User Account Data")

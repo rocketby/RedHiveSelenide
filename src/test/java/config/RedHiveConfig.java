@@ -26,4 +26,15 @@ public interface RedHiveConfig extends Config {
 
     @Key("runMode")
     String runMode();
+
+    @Key("browser")
+    String browser();
+
+    @Key("browserVersion")
+    String browserVersion();
+
+    @Key("browserSize")
+    String browserSize();
+
+
 }

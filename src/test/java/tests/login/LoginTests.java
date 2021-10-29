@@ -6,6 +6,7 @@ import allure.Microservice;
 
 import enums.Endpoint;
 import enums.LoginField;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.LoginPage;
@@ -35,6 +36,7 @@ public class LoginTests extends BaseTest {
 
 
     @Test
+    @AllureId("5690")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("positive")})
     @DisplayName("Successful login")
@@ -50,6 +52,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5685")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (wrong password is entered)")
@@ -66,6 +69,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5683")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (email is not entered)")
@@ -80,6 +84,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5689")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (password is not entered)")
@@ -94,6 +99,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5679")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (password is not entered)")

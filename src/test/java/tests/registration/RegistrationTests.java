@@ -6,6 +6,7 @@ import allure.Microservice;
 import com.codeborne.selenide.Selenide;
 import enums.Endpoint;
 import enums.RegistrationField;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.RegistrationPage;
@@ -27,6 +28,7 @@ public class RegistrationTests extends BaseTest {
     }
 
     @ParameterizedTest(name = "Unsuccessful registration (fill wrong email: {0})")
+    @AllureId("5678")
     @ValueSource(strings = {"test", "test@", "test.com", "test@.com", "test@tt.11", "@gmail.com"})
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})

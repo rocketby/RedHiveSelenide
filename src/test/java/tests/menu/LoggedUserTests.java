@@ -6,6 +6,7 @@ import allure.Microservice;
 import enums.Endpoint;
 import enums.LoginField;
 import enums.MenuItem;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.*;
@@ -39,6 +40,7 @@ public class LoggedUserTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5681")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("decks")})
     @DisplayName("Open page with decks by logged user")
@@ -50,6 +52,7 @@ public class LoggedUserTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5691")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("article")})
     @DisplayName("Open page with articles by logged user")
@@ -61,6 +64,7 @@ public class LoggedUserTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5693")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("article")})
     @DisplayName("Open page to create a new article by logged user")
@@ -70,6 +74,7 @@ public class LoggedUserTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5688")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("decks")})
     @DisplayName("Open page to create a new deck by logged user")
@@ -79,6 +84,7 @@ public class LoggedUserTests extends BaseTest {
     }
 
     @Test
+    @AllureId("5686")
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("priceCalculator")})
     @DisplayName("Open price calculator by logged user")

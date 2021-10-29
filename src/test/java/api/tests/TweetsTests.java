@@ -5,6 +5,7 @@ import allure.JiraIssues;
 import api.models.TweetData;
 import api.models.TweetsMeta;
 import api.spec.ApiSteps;
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -19,6 +20,7 @@ public class TweetsTests {
     private final ApiSteps steps = new ApiSteps();
 
     @Test
+    @AllureId("5676")
     @JiraIssues({@JiraIssue("HOMEWORK-257")})
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify that Tweet in RedHiveGames account contains expected data")
@@ -37,6 +39,7 @@ public class TweetsTests {
     }
 
     @Test
+    @AllureId("5673")
     @JiraIssues({@JiraIssue("HOMEWORK-257")})
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify that in RedHiveGames Twitter account expected number of tweets is displayed")
@@ -55,6 +58,7 @@ public class TweetsTests {
     }
 
     @Test
+    @AllureId("5675")
     @JiraIssues({@JiraIssue("HOMEWORK-257")})
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify data in oldest Tweet in RedHive Twitter account")
@@ -78,6 +82,7 @@ public class TweetsTests {
     }
 
     @Test
+    @AllureId("5677")
     @JiraIssues({@JiraIssue("HOMEWORK-257")})
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify number of  tweets that are liked by RedHive user account")
