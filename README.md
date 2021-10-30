@@ -74,14 +74,20 @@ gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/ -DrunMode=remote
 ```bash
 allure serve build/allure-results
 ```
+### Running build in Jenkinks with parameters:
+![image](https://user-images.githubusercontent.com/86851419/139532022-943a89c4-b34a-4c45-aa45-a42e451f6843.png)
+
 ### Results of tests execution in Allure Reports: 
 ![image](https://user-images.githubusercontent.com/86851419/139345770-2ee7d7ce-bf70-4ecb-94d1-7bd204f8a2a2.png)
 
 ### Launches in Allure TestOps:
 ![image](https://user-images.githubusercontent.com/86851419/139475971-bfe88afc-4077-4d3d-a470-00803fb06a01.png)
 
-### Test cases and meta information in Allure TestOps:
+### Test results and meta information in Allure TestOps:
 ![image](https://user-images.githubusercontent.com/86851419/139531412-a0e12f9b-87b9-4451-aa5d-e95440c6d6bb.png)
+
+### Test results in JIRA:
+![image](https://user-images.githubusercontent.com/86851419/139532148-4ed434ae-9f9d-4cf3-b348-a5364714d8c7.png)
 
 ### Results of Tests execution in Telegram:
 ![image](https://user-images.githubusercontent.com/86851419/139345085-88f8dd73-ba9d-4438-b2b1-a8d8be39ca2b.png)
