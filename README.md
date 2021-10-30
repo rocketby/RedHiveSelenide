@@ -1,9 +1,31 @@
-# redhives
+# redhivegames
 ### Hi there! :rocket:
 
-### This project contains automation tests of Web Site: https://redhivegames.com/en
+### This project contains automated tests of Web Site: https://redhivegames.com/en
+#### Tutorial articles for 3D MOBA game Overprime, bunch of builds for every hero with description.
 
-The following technologies are used:
+#### List of automated tests:
+
+#### UI
+-	Positive/negative login tests
+-	Parameterized tests  of registration form
+-	Tests of opening pages in main menu by authorized/not authorized user and checking expected content. Pages, that are opened from main menu:
+    - Decks
+    - Articles
+    - Create article (not authorized user is redirected to login page)
+    - Create deck (not authorized user is redirected to login page)
+    - Card price calculator (for not authorized user message with login link is displayed))
+
+#### API
+Usage of models/rest assured library for testing of tweets on RedHiveGames Twitter account. Tests contain check of:
+-	RedHiveGames account name
+-	tweet's data (for some specified twitter id)
+-	getting id of oldest tweet and checking its content
+-	number of tweets in RedHiveGames Twitter account
+-	number of tweets, where RedHiveGames account put “like” mark
+
+
+The following **technologies** are used:
 
 * :white_check_mark: **Java**  - OOP language, that was used for the automation tests development
 * :white_check_mark: **Intellij Idea**  - integrated development environment (IDE) for developing computer software 
@@ -52,14 +74,16 @@ gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/ -DrunMode=remote
 ```bash
 allure serve build/allure-results
 ```
-
+### Results of tests execution in Allure Reports: 
 ![image](https://user-images.githubusercontent.com/86851419/139345770-2ee7d7ce-bf70-4ecb-94d1-7bd204f8a2a2.png)
 
-**Allure TestOps:**
+### Launches in Allure TestOps:
 ![image](https://user-images.githubusercontent.com/86851419/139475971-bfe88afc-4077-4d3d-a470-00803fb06a01.png)
 
-![image](https://user-images.githubusercontent.com/86851419/139476968-88684321-9465-425e-8e34-ad3254b2f4f0.png)
+### Test cases and meta information in Allure TestOps:
+![image](https://user-images.githubusercontent.com/86851419/139531412-a0e12f9b-87b9-4451-aa5d-e95440c6d6bb.png)
 
-**Result of Tests execution in Telegram:**
-
+### Results of Tests execution in Telegram:
 ![image](https://user-images.githubusercontent.com/86851419/139345085-88f8dd73-ba9d-4438-b2b1-a8d8be39ca2b.png)
+
+
