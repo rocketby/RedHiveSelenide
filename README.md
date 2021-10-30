@@ -52,14 +52,14 @@ gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/ -DrunMode=remote
 ```bash
 allure serve build/allure-results
 ```
-
+### Results of tests execution in Allure Reports: 
 ![image](https://user-images.githubusercontent.com/86851419/139345770-2ee7d7ce-bf70-4ecb-94d1-7bd204f8a2a2.png)
 
-**Allure TestOps:**
+### Launches in Allure TestOps:
 ![image](https://user-images.githubusercontent.com/86851419/139475971-bfe88afc-4077-4d3d-a470-00803fb06a01.png)
 
+### Test cases and meta information in Allure TestOps:
 ![image](https://user-images.githubusercontent.com/86851419/139476968-88684321-9465-425e-8e34-ad3254b2f4f0.png)
 
-**Result of Tests execution in Telegram:**
-
+### Results of Tests execution in Telegram:
 ![image](https://user-images.githubusercontent.com/86851419/139345085-88f8dd73-ba9d-4438-b2b1-a8d8be39ca2b.png)
