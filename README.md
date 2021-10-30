@@ -86,4 +86,7 @@ allure serve build/allure-results
 ### Results of Tests execution in Telegram:
 ![image](https://user-images.githubusercontent.com/86851419/139345085-88f8dd73-ba9d-4438-b2b1-a8d8be39ca2b.png)
 
+### Recorded test run:
+![alt text](https://github.com/rocketby/redhives/blob/master/src/test/resources/video/testrun.gif "Tests execution recorded")
+
 
