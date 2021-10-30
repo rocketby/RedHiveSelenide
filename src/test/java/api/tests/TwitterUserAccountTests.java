@@ -14,9 +14,9 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static api.config.ApiCredentials.apiCredentials;
 
+@Layer("rest")
 @Owner("tat")
 @Lead("alex")
-@Layer("rest")
 @Microservice("twitter api")
 @DisplayName("Check RedHiveGames Twitter account")
 public class TwitterUserAccountTests {
