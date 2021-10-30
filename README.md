@@ -2,7 +2,7 @@
 ### Hi there! :rocket:
 
 ### This project contains automated tests of Web Site: https://redhivegames.com/en
-#### Tutorial articles for 3D MOBA game Overprime, bunch of builds for every hero with description.
+#### :space_invader: Tutorial articles for 3D MOBA game Overprime, bunch of builds for every hero with description.
 
 #### List of automated tests:
 
@@ -10,11 +10,11 @@
 -	Positive/negative login tests
 -	Parameterized tests  of registration form
 -	Tests of opening pages in main menu by authorized/not authorized user and checking expected content. Pages, that are opened from main menu:
-    - Decks
-    - Articles
-    - Create article (not authorized user is redirected to login page)
-    - Create deck (not authorized user is redirected to login page)
-    - Card price calculator (for not authorized user message with login link is displayed))
+    - **Decks**
+    - **Articles**
+    - **Create article** (not authorized user is redirected to login page)
+    - **Create deck** (not authorized user is redirected to login page)
+    - **Card price calculator** (for not authorized user message with login link is displayed))
 
 #### API
 Usage of models/rest assured library for testing of tweets on RedHiveGames Twitter account. Tests contain check of:
