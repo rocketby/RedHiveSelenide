@@ -75,7 +75,7 @@ gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/ -DrunMode=remote
 allure serve build/allure-results
 ```
 ### Running build in Jenkinks with parameters:
-![image](https://user-images.githubusercontent.com/86851419/139532022-943a89c4-b34a-4c45-aa45-a42e451f6843.png)
+![image](https://user-images.githubusercontent.com/86851419/139532353-a685f319-9ee8-408d-bc9d-2969417e79e8.png)
 
 ### Results of tests execution in Allure Reports: 
 ![image](https://user-images.githubusercontent.com/86851419/139345770-2ee7d7ce-bf70-4ecb-94d1-7bd204f8a2a2.png)
