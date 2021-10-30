@@ -17,7 +17,7 @@ import static api.config.ApiCredentials.apiCredentials;
 
 @Owner("tat")
 @Lead("alex")
-@Layer("api")
+@Layer("rest")
 @Microservice("twitter api")
 @DisplayName("Check data in RedHiveGames Twitter account")
 public class TweetsTests {
