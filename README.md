@@ -86,6 +86,9 @@ allure serve build/allure-results
 ### Test results and meta information in Allure TestOps:
 ![image](https://user-images.githubusercontent.com/86851419/139533513-4534e487-c983-42f2-9c84-a957fd22e8c6.png)
 
+### Dashbord with analytics in Allure TestOps:
+![image](https://user-images.githubusercontent.com/86851419/139533723-eb039344-a888-45e0-910d-9407457a375d.png)
+
 ### Test results in JIRA:
 ![image](https://user-images.githubusercontent.com/86851419/139532148-4ed434ae-9f9d-4cf3-b348-a5364714d8c7.png)
 
