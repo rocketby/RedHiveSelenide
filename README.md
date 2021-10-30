@@ -81,7 +81,7 @@ allure serve build/allure-results
 ![image](https://user-images.githubusercontent.com/86851419/139475971-bfe88afc-4077-4d3d-a470-00803fb06a01.png)
 
 ### Test cases and meta information in Allure TestOps:
-![image](https://user-images.githubusercontent.com/86851419/139476968-88684321-9465-425e-8e34-ad3254b2f4f0.png)
+![image](https://user-images.githubusercontent.com/86851419/139531412-a0e12f9b-87b9-4451-aa5d-e95440c6d6bb.png)
 
 ### Results of Tests execution in Telegram:
 ![image](https://user-images.githubusercontent.com/86851419/139345085-88f8dd73-ba9d-4438-b2b1-a8d8be39ca2b.png)
