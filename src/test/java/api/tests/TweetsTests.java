@@ -1,11 +1,11 @@
 package api.tests;
 
-import allure.JiraIssue;
-import allure.JiraIssues;
+import allure.*;
 import api.models.TweetData;
 import api.models.TweetsMeta;
 import api.spec.ApiSteps;
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -15,6 +15,10 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static api.config.ApiCredentials.apiCredentials;
 
+@Owner("tat")
+@Lead("alex")
+@Layer("api")
+@Microservice("twitter api")
 @DisplayName("Check data in RedHiveGames Twitter account")
 public class TweetsTests {
     private final ApiSteps steps = new ApiSteps();

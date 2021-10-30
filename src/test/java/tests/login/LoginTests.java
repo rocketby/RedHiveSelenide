@@ -2,6 +2,7 @@ package tests.login;
 
 import allure.JiraIssue;
 import allure.Layer;
+import allure.Lead;
 import allure.Microservice;
 
 import enums.Endpoint;
@@ -16,6 +17,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static config.Credentials.credentials;
 
 @Owner("tat")
+@Lead("alex")
 @Layer("web")
 @Microservice("login")
 @DisplayName("Verify login")

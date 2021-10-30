@@ -2,6 +2,7 @@ package tests.registration;
 
 import allure.JiraIssue;
 import allure.Layer;
+import allure.Lead;
 import allure.Microservice;
 import com.codeborne.selenide.Selenide;
 import enums.Endpoint;
@@ -15,6 +16,7 @@ import tests.BaseTest;
 
 @Owner("tat")
 @Layer("web")
+@Lead("alex")
 @Microservice("registration")
 @DisplayName("Verify registration with wrong format of email")
 public class RegistrationTests extends BaseTest {

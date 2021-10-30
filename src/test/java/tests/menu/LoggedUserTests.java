@@ -2,6 +2,7 @@ package tests.menu;
 
 import allure.JiraIssue;
 import allure.Layer;
+import allure.Lead;
 import allure.Microservice;
 import enums.MenuItem;
 import io.qameta.allure.AllureId;
@@ -19,6 +20,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static config.Credentials.credentials;
 
 @Owner("tat")
+@Lead("alex")
 @Layer("web")
 @Microservice("main menu")
 @DisplayName("Verify opening main menu sections by logged user")
