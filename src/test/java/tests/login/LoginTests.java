@@ -23,8 +23,8 @@ import static config.Credentials.credentials;
 @DisplayName("Verify login")
 public class LoginTests extends BaseTest {
     private LoginPage loginPage;
-    String email = credentials.loginEmail();
-    String password = credentials.loginPassword();
+    private String email = credentials.loginEmail();
+    private String password = credentials.loginPassword();
 
     @BeforeEach
     @DisplayName("Open login page")
