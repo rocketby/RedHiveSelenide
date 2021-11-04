@@ -6,6 +6,7 @@ import allure.Lead;
 import allure.Microservice;
 import enums.MenuItem;
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.MainPage;
@@ -23,6 +24,7 @@ import static config.Credentials.credentials;
 @Lead("alex")
 @Layer("web")
 @Microservice("main menu")
+@Feature("main menu")
 @DisplayName("Verify opening main menu sections by logged user")
 public class LoggedUserTests extends BaseTest {
     private MainPage mainPage;

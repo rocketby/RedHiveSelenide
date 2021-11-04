@@ -7,6 +7,7 @@ import allure.Microservice;
 
 import enums.Endpoint;
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.user.LoginPage;
@@ -20,6 +21,7 @@ import static config.Credentials.credentials;
 @Lead("alex")
 @Layer("web")
 @Microservice("login")
+@Feature("login")
 @DisplayName("Verify login")
 public class LoginTests extends BaseTest {
     private LoginPage loginPage;

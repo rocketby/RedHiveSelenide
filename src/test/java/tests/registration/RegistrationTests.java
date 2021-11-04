@@ -7,6 +7,7 @@ import allure.Microservice;
 import com.codeborne.selenide.Selenide;
 import enums.Endpoint;
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
 import pages.user.RegistrationPage;
@@ -18,6 +19,7 @@ import tests.BaseTest;
 @Layer("web")
 @Lead("alex")
 @Microservice("registration")
+@Feature("registration")
 @DisplayName("Verify registration with wrong format of email")
 public class RegistrationTests extends BaseTest {
     private RegistrationPage registrationPage;

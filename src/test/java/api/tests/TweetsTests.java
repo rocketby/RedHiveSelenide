@@ -5,6 +5,7 @@ import api.models.TweetData;
 import api.models.TweetsMeta;
 import api.spec.ApiSteps;
 import io.qameta.allure.AllureId;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -19,6 +20,7 @@ import static config.Credentials.credentials;
 @Owner("tat")
 @Lead("alex")
 @Microservice("twitter api")
+@Feature("twitter api")
 @DisplayName("Check data in RedHiveGames Twitter account")
 public class TweetsTests extends BaseApiTest {
     private final ApiSteps steps = new ApiSteps();
