@@ -13,14 +13,14 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static api.config.ApiCredentials.apiCredentials;
+import static config.Credentials.credentials;
 
 @Layer("rest")
 @Owner("tat")
 @Lead("alex")
 @Microservice("twitter api")
 @DisplayName("Check data in RedHiveGames Twitter account")
-public class TweetsTests {
+public class TweetsTests extends BaseApiTest {
     private final ApiSteps steps = new ApiSteps();
 
     @Test
@@ -48,7 +48,7 @@ public class TweetsTests {
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify that in RedHiveGames Twitter account expected number of tweets is displayed")
     public void checkNumberOfTweetsOnRedHiveAccount() {
-        String accountId = apiCredentials.idAccount();
+        String accountId = credentials.idAccount();
         int countTweetsExpected = 13;
 
         TweetsMeta tweetsList = steps.getTweetsList(accountId);
@@ -69,7 +69,7 @@ public class TweetsTests {
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify data in oldest Tweet in RedHive Twitter account")
     public void checkOldestTweetData() {
-        String accountId = apiCredentials.idAccount();
+        String accountId = credentials.idAccount();
         String tweetIdExpected = "1288123051410784257";
         String creationDateExpected = "2020-07-28T14:44:02.000Z";
         String textExpected = "Visit https://t.co/P8k7pih3rO to check detailed Tutorial about overprime roles.";
@@ -93,7 +93,7 @@ public class TweetsTests {
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify number of  tweets that are liked by RedHive user account")
     public void checkTweetsLikedByUser() {
-        String accountId = apiCredentials.idAccount();
+        String accountId = credentials.idAccount();
 
         int countTweetsExpected = 3;
 

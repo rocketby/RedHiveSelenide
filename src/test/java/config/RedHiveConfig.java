@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:redhive-config.properties"
+        "classpath:${runMode}.properties"
 })
 public interface RedHiveConfig extends Config {
     @Key("baseURL")
@@ -17,6 +17,9 @@ public interface RedHiveConfig extends Config {
 
     @Key("loginPassword")
     String loginPassword();
+
+    @Key("urlSelenoid")
+    String urlSelenoid();
 
     @Key("loginSelenoid")
     String loginSelenoid();
@@ -36,5 +39,19 @@ public interface RedHiveConfig extends Config {
     @Key("browserSize")
     String browserSize();
 
+    @Key("idAccount")
+    String idAccount();
+
+    @Key("consumerKey")
+    String consumerKey();
+
+    @Key("consumerSecret")
+    String consumerSecret();
+
+    @Key("accessToken")
+    String accessToken();
+
+    @Key("secretToken")
+    String secretToken();
 
 }

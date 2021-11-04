@@ -6,13 +6,13 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
-import static api.config.ApiCredentials.apiCredentials;
+import static config.Credentials.credentials;
 
 public class Specs {
-    public static String consumerKey = apiCredentials.consumerKey();
-    public static String consumerSecret = apiCredentials.consumerSecret();
-    public static String accessToken = apiCredentials.accessToken();
-    public static String secretToken = apiCredentials.secretToken();
+    public static String consumerKey = credentials.consumerKey();
+    public static String consumerSecret = credentials.consumerSecret();
+    public static String accessToken = credentials.accessToken();
+    public static String secretToken = credentials.secretToken();
 
 
     public static RequestSpecification requestSpec = with()

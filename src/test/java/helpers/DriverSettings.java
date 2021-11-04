@@ -6,17 +6,30 @@ import static java.lang.String.format;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-
 public class DriverSettings {
-
     public static void configure() {
-        String loginSelenoid = credentials.loginSelenoid();
-        String passwordSelenoid = credentials.passwordSelenoid();
+
+        String runModeProperty = System.getProperty("runMode", "local");
+
+        //if need to execute tests in selenoid, then use command:
+        //gradle clean test -DrunMode=remote
+
+        //if need to execute tests locally, use command:
+        //gradle clean test
+
+        if (runModeProperty.equals("remote")) {
+            String loginSelenoid = credentials.loginSelenoid();
+            String passwordSelenoid = credentials.passwordSelenoid();
+
+            Configuration.remote = format("https://%s:%s@" + credentials.urlSelenoid(), loginSelenoid, passwordSelenoid);
+
+        } else {
+            System.setProperty("runMode", "local");
+        }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-
 
         Configuration.browser = credentials.browser();
         Configuration.browserVersion = credentials.browserVersion();
@@ -24,16 +37,6 @@ public class DriverSettings {
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
         Configuration.baseUrl = credentials.baseURL();
-
-        //if need to execute tests in selenoid, then use command:
-        //gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/ -DrunMode=remote
-
-        //if need to execute tests locally, use command:
-        //gradle clean test
-
-        if (System.getProperty("runMode", "local").equals("remote")) {
-            Configuration.remote = format("https://%s:%s@" + System.getProperty("url"), loginSelenoid, passwordSelenoid);
-        }
 
     }
 }

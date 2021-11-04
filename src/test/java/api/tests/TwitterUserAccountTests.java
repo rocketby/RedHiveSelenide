@@ -12,14 +12,14 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static api.config.ApiCredentials.apiCredentials;
+import static config.Credentials.credentials;
 
 @Layer("rest")
 @Owner("tat")
 @Lead("alex")
 @Microservice("twitter api")
 @DisplayName("Check RedHiveGames Twitter account")
-public class TwitterUserAccountTests {
+public class TwitterUserAccountTests extends BaseApiTest {
     private final ApiSteps steps = new ApiSteps();
 
     @Test
@@ -28,7 +28,7 @@ public class TwitterUserAccountTests {
     @Tags({@Tag("api"), @Tag("positive"), @Tag("twitter")})
     @DisplayName("Verify User Account Data")
     public void checkTweetDataByID() {
-        String idAccount = apiCredentials.idAccount();
+        String idAccount = credentials.idAccount();
         String userAccountName = "RedHiveGames";
         UserAccountData userAccount = steps.getUserAccountData(idAccount);
 

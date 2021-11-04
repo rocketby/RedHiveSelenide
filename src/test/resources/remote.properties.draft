@@ -1,0 +1,16 @@
+browser=chrome
+browserVersion=91.0
+browserSize=1920x1080
+baseURL=https://redhivegames.com/en
+faviconURL=https://redhivegames.com/favicon.ico
+loginEmail=
+loginPassword=
+urlSelenoid=
+loginSelenoid=
+passwordSelenoid=
+runMode=remote
+idAccount=
+consumerKey=
+consumerSecret=
+accessToken=
+secretToken=
