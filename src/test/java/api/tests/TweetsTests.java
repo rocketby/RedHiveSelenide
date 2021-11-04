@@ -49,12 +49,16 @@ public class TweetsTests {
     @DisplayName("Verify that in RedHiveGames Twitter account expected number of tweets is displayed")
     public void checkNumberOfTweetsOnRedHiveAccount() {
         String accountId = apiCredentials.idAccount();
+        int countTweetsExpected = 13;
+
         TweetsMeta tweetsList = steps.getTweetsList(accountId);
 
-        int countTweetsExpected = tweetsList.getMeta().getResultCount();
-
         step("Check,that count of tweets equals to expected count", () -> {
-            assertThat(tweetsList.getData().size()).isEqualTo(countTweetsExpected);
+            assertThat(tweetsList.getData().size()).isGreaterThanOrEqualTo(countTweetsExpected);
+        });
+
+        step("Check,that count of tweets from meta data equals to expected count", () -> {
+            assertThat(tweetsList.getMeta().getResultCount()).isGreaterThanOrEqualTo(countTweetsExpected);
         });
 
     }
@@ -91,12 +95,16 @@ public class TweetsTests {
     public void checkTweetsLikedByUser() {
         String accountId = apiCredentials.idAccount();
 
+        int countTweetsExpected = 3;
+
         TweetsMeta tweetsList = steps.getLikedTweetsList(accountId);
 
-        int countTweetsExpected = tweetsList.getMeta().getResultCount();
-
         step("Check,that count of tweets equals to expected count", () -> {
-            assertThat(tweetsList.getData().size()).isEqualTo(countTweetsExpected);
+            assertThat(tweetsList.getData().size()).isGreaterThanOrEqualTo(countTweetsExpected);
+        });
+
+        step("Check,that count of tweets from meta data equals to expected count", () -> {
+            assertThat(tweetsList.getMeta().getResultCount()).isGreaterThanOrEqualTo(countTweetsExpected);
         });
 
     }
