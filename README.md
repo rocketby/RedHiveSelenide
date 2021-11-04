@@ -67,7 +67,7 @@ gradle clean test
 
 ### Run tests using Selenoid:
 ```bash
-gradle clean test -Durl=selenoid.autotests.cloud/wd/hub/ -DrunMode=remote
+gradle clean test -DrunMode=remote
 ```
 
 ### Serve Allure report:
