@@ -23,7 +23,7 @@ import static config.Credentials.credentials;
 @Lead("alex")
 @Layer("web")
 @Microservice("main menu")
-@Feature("main menu")
+@Feature("main menu - not logged user")
 @DisplayName("Verify opening of pages by not logged user")
 public class NotLoggedUserTests extends BaseTest {
     private MainPage mainPage;

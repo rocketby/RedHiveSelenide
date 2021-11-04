@@ -24,7 +24,7 @@ import static config.Credentials.credentials;
 @Lead("alex")
 @Layer("web")
 @Microservice("main menu")
-@Feature("main menu")
+@Feature("main menu - logged user")
 @DisplayName("Verify opening main menu sections by logged user")
 public class LoggedUserTests extends BaseTest {
     private MainPage mainPage;
