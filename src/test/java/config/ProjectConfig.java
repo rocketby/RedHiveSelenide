@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         "classpath:${runMode}.properties"
 })
-public interface RedHiveConfig extends Config {
+public interface ProjectConfig extends Config {
     @Key("baseURL")
     String baseURL();
 

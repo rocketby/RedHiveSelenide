@@ -19,6 +19,8 @@ import tests.BaseTest;
 
 import static com.codeborne.selenide.Selenide.open;
 import static config.Credentials.credentials;
+import static helpers.CookieHelper.cleanCookies;
+import static helpers.CookieHelper.setCookie;
 
 @Owner("tat")
 @Lead("alex")

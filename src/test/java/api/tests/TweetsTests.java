@@ -36,7 +36,7 @@ public class TweetsTests extends BaseApiTest {
         String tweetCreatedDate = "2021-07-01T09:32:36.000Z";
         TweetData tweet = steps.getTweetById(idTweet);
 
-        step("Check,that Tweet text is as expected", () -> {
+        step("Check that Tweet text is as expected", () -> {
             assertThat(tweet.getData().getText().contains(tweetText));
             assertThat(tweet.getData().getId().equals(idTweet));
             assertThat(tweet.getData().getCreatedAt().equals(tweetCreatedDate));
@@ -80,7 +80,7 @@ public class TweetsTests extends BaseApiTest {
         String oldestTweetId = tweetsList.getOldestId();
         TweetData tweet = steps.getTweetById(oldestTweetId);
 
-        step("Check,that data in oldest Tweet in RedHive account is as expected", () -> {
+        step("Check that data in oldest Tweet in RedHive account is as expected", () -> {
             assertThat(tweet.getData().getText().contains(textExpected));
             assertThat(tweet.getData().getId().equals(tweetIdExpected));
             assertThat(tweet.getData().getCreatedAt().equals(creationDateExpected));

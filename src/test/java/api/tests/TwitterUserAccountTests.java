@@ -34,7 +34,7 @@ public class TwitterUserAccountTests extends BaseApiTest {
         String userAccountName = "RedHiveGames";
         UserAccountData userAccount = steps.getUserAccountData(idAccount);
 
-        step("Check,that Red Hive Twitter Account's data is as expected", () -> {
+        step("Check that Red Hive Twitter Account's data is as expected", () -> {
             assertThat(userAccount.getData().getUsername().equals(userAccountName));
             assertThat(userAccount.getData().getName().equals(userAccountName));
         });

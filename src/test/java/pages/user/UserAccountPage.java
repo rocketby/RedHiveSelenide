@@ -1,7 +1,6 @@
 package pages.user;
 
-
-import com.codeborne.selenide.Condition;
+import static com.codeborne.selenide.Condition.visible;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -10,7 +9,7 @@ public class UserAccountPage {
 
     @Step("Check display of user's avatar after login")
     public UserAccountPage avatarOfLoggedUserShouldBeVisible() {
-        $(".navbar-user-avatar").shouldBe(Condition.visible);
+        $(".navbar-user-avatar").shouldBe(visible);
         return this;
     }
 

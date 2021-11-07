@@ -3,5 +3,5 @@ package config;
 import org.aeonbits.owner.ConfigFactory;
 
 public class Credentials {
-    public static RedHiveConfig credentials = ConfigFactory.create(RedHiveConfig.class);
+    public static ProjectConfig credentials = ConfigFactory.create(ProjectConfig.class);
 }

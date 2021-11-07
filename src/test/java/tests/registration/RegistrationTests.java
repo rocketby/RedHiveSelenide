@@ -15,6 +15,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import tests.BaseTest;
 
+import static helpers.CookieHelper.cleanCookies;
+
 @Owner("tat")
 @Layer("web")
 @Lead("alex")

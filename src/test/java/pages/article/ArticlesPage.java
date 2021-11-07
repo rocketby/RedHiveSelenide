@@ -18,7 +18,8 @@ public class ArticlesPage {
     @Step("Check that all articles exist on page")
     public ArticlesPage shouldDisplayArticlesOnPage(){
         int numberOfArticlesOnPage=12;
-        $$x("//div[@class='row articles-list ']/div").shouldHave(size(numberOfArticlesOnPage));
+        $$(".articles-list > div").shouldHave(size(numberOfArticlesOnPage));
         return this;
     }
 }
+

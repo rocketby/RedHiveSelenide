@@ -13,9 +13,9 @@ import org.junit.jupiter.api.*;
 import pages.user.LoginPage;
 import pages.user.UserAccountPage;
 import tests.BaseTest;
-
 import static com.codeborne.selenide.Selenide.open;
 import static config.Credentials.credentials;
+import static helpers.CookieHelper.cleanCookies;
 
 @Owner("tat")
 @Lead("alex")
@@ -46,7 +46,6 @@ public class LoginTests extends BaseTest {
                 .enterPassword(password)
                 .unsetRememberMeCheckbox()
                 .clickLogin();
-        // System.out.println(getWebDriver().manage().getCookies());
         UserAccountPage userAccountPage = new UserAccountPage();
         userAccountPage.avatarOfLoggedUserShouldBeVisible();
     }
@@ -112,5 +111,4 @@ public class LoginTests extends BaseTest {
         loginPage.loginPageShouldBeDisplayed();
 
     }
-
 }
