@@ -40,7 +40,7 @@ public class LoginTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("positive")})
     @DisplayName("Successful login")
-    public void checkSuccessfulLogin() {
+    public void successfulLoginTest() {
         loginPage
                 .enterEmail(email)
                 .enterPassword(password)
@@ -55,7 +55,7 @@ public class LoginTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (wrong password is entered)")
-    public void checkLoginWithWrongPassword() {
+    public void loginWithWrongPasswordTest() {
         String wrongPassword = "badPassword";
 
         loginPage
@@ -72,7 +72,7 @@ public class LoginTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (email is not entered)")
-    public void checkLoginWithNotEnteredEmail() {
+    public void loginWithNotEnteredEmailTest() {
         loginPage
                 .enterPassword(password)
                 .clickLogin();
@@ -86,7 +86,7 @@ public class LoginTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (password is not entered)")
-    public void checkLoginWithNotEnteredPassword() {
+    public void loginWithNotEnteredPasswordTest() {
         loginPage
                 .enterEmail(email)
                 .clickLogin();
@@ -100,7 +100,7 @@ public class LoginTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Unsuccessful login (password is not entered)")
-    public void checkLoginWithNotRegisteredMail() {
+    public void loginWithNotRegisteredMailTest() {
         String emailNotRegistered = "ee@ee.ee";
         loginPage
                 .enterEmail(emailNotRegistered)

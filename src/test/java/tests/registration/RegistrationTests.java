@@ -39,7 +39,7 @@ public class RegistrationTests extends BaseTest {
     @JiraIssue("HOMEWORK-257")
     @Tags({@Tag("web"), @Tag("negative")})
     @DisplayName("Login attempts with bad format of email")
-    void checkUnsuccessfulRegistration(String wrongEmail) {
+    void unsuccessfulRegistrationTest(String wrongEmail) {
         String password = "test123456";
         registrationPage
                 .enterEmail(wrongEmail)

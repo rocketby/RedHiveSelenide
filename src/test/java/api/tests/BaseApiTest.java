@@ -8,5 +8,4 @@ public class BaseApiTest {
     static void setup() {
         DriverSettings.configure();
     }
-
 }
